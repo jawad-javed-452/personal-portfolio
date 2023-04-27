@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect xml with js</title>
+    <style>
+        button{
+            background-color: blueviolet;
+            color: white;
+            padding: 20px 50px;
+            border-radius: 20px;
+            font-size: 22px;
+            text-transform: capitalize;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        table{
+            width: 100%;
+
+        }
+    
+    </style>
+</head>
+<body>
+    <button onclick="loadxml()">
+        Load Employees
+    </button>
+
+    <table id="tab"></table>
+
+    <script>
+        function loadxml(){
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function(){
+
+                if (this.readyState == 4 && this.status == 200){
+                    content(this);
+                }
+            }
+
+            // external xml file link
+            xmlhttp.open("GET","file.xml",true);
+            xmlhttp.send();
+        };
+
+
+        function content(xml) {
+            let i;
+            let xmlDoc = xml.responseXML;
+            let table =
+            `<tr>
+            <th>Name</th>
+            <th>Live</th>
+            <th>Profession</th>
+            <th>Income</th>
+            </tr>`;
+        
+            let x = xmlDoc.getElementsByTagName("content");
+
+            for (i = 0; i < x.length; i++)
+            {   
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue + 
+                    "</td><td>" +
+                    x[i].getElementsByTagName("live")[0].childNodes[0].nodeValue +"</td><td>" +
+                     x[i].getElementsByTagName("profession")[0].childNodes[0].nodeValue + "</td><td>" +
+                        x[i].getElementsByTagName("income")[0].childNodes[0].nodeValue+"</td></tr>" ;  
+            }
+            let mstore=document.getElementById("tab").innerHTML = table;
+            
+        }
+        </script>
+</body>
+</html>

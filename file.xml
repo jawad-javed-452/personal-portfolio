@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<heading>
+<content id="box1">
+<name>Ali</name>
+<live>Karachi</live>
+<profession>Engineer</profession>
+<income>1000</income>
+</content>
+<content id="box2">
+<name>Muzamil</name>
+<live>Lhaore</live>
+<profession>Doctor</profession>
+<income>150000</income>
+</content>
+<content id="box3">
+<name>Ahmed</name>
+<live>Islamabad</live>
+<profession>Freelancer</profession>
+<income>....</income>
+</content>
+<content id="box4">
+<name>Ariyan</name>
+<live>pendi</live>
+<profession>hr</profession>
+<income>99999</income>
+</content>
+<content id="box5">
+<name>Ahmed</name>
+<live>punjab</live>
+<profession>manager</profession>
+<income>23023</income>
+</content>
+</heading>
